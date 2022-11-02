@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRLC</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+<style>
+* {
+	font-family: 'Space Mono', monospace;
+}
+
+body {
+  background-image: url("paper.gif")
+}
+
+select {
+  background-color: #e1f8dc;
+  color: black;
+  outline: none;
+  padding: 8px;
+  border-radius: 10px;
+}
+</style>
+<div class="container">
+  <select id="mySelect" style="width:80%;">
+    <option value="1" data-url="home.html">Home</option>
+    <option value="2" data-url="about.html">About</option>
+    <option value="2" data-url="members.html">Members</option>
+  </select>
+</div>
+
+<br>
+<div id="page"></div>
+
+<script>
+$(function() {
+  loadPage("home.html");
+
+ $('#mySelect').on('change', function() {
+    loadPage($(this).find(':selected').data('url'));
+ });
+});
+function loadPage(url) {
+  $("#page").load(url);
+}
+</script>
+</body>
+</html>
